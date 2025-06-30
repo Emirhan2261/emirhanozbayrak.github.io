@@ -1,0 +1,378 @@
+/* styles.css */
+
+/* Genel ayarlar */
+body {
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  overflow-x: hidden;
+  background: linear-gradient(135deg, #f6f9fc, #e0f2ff);
+  background-size: 400% 400%;
+  animation: animatedGradient 20s ease infinite;
+  color: #1e1e1e;
+  transition: background-color 0.4s, color 0.4s;
+}
+
+@keyframes animatedGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+body.dark-mode {
+  background: linear-gradient(135deg, #121212, #1e1e1e);
+  background-size: 400% 400%;
+  animation: animatedGradient 20s ease infinite;
+  color: #eaeaea;
+}
+
+/* Dalga animasyonu hero altı */
+.hero::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 150px;
+  background: url('https://www.svgbackgrounds.com/wp-content/uploads/2021/05/wave-3.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.4;
+}
+body.dark-mode .hero::after {
+  background: url('https://www.svgbackgrounds.com/wp-content/uploads/2021/05/wave-6-dark.svg');
+  background-size: cover;
+  opacity: 0.3;
+}
+
+/* Navbar */
+nav.navbar {
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+body.dark-mode nav.navbar {
+  background: rgba(20, 20, 40, 0.95);
+}
+
+.navbar .navbar-brand {
+  font-weight: 700;
+  font-size: 1.6rem;
+  color: #5e60ce;
+}
+body.dark-mode .navbar .navbar-brand {
+  color: #bdb2ff;
+}
+
+.navbar-nav .nav-link {
+  color: #333;
+  font-weight: 600;
+}
+.navbar-nav .nav-link:hover {
+  color: #5e60ce;
+}
+body.dark-mode .navbar-nav .nav-link {
+  color: #fdfdfd;
+}
+body.dark-mode .navbar-nav .nav-link:hover {
+  color: #bdb2ff;
+}
+
+/* Dark mode toggle butonu */
+.compact-toggle {
+  padding: 0.3rem 0.75rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: 20px;
+  border: 1.5px solid #5e60ce;
+  background-color: transparent;
+  color: #5e60ce;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.compact-toggle:hover {
+  background-color: #5e60ce;
+  color: white;
+}
+
+/* Hero bölümü */
+.hero {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 15px;
+  background: transparent;
+  z-index: 1;
+}
+
+.hero .content {
+  max-width: 900px;
+  padding: 0;
+  background: transparent;
+  box-shadow: none;
+  z-index: 2;
+}
+body.dark-mode .hero .content {
+  background: transparent;
+  color: #fdfdfd;
+}
+
+/* Typewriter animasyonu */
+.typewriter {
+  font-size: 2.8rem;
+  font-weight: 700;
+  border-right: .15em solid #5e60ce;
+  white-space: nowrap;
+  margin: 0 auto;
+  overflow: hidden;
+  width: 31ch; /* Cümlenin karakter sayısına göre */
+  animation: typing 3.5s steps(29, end), blink-caret .75s step-end infinite;
+  color: #5e60ce;
+  text-align: center;
+}
+
+body.dark-mode .typewriter {
+  border-right-color: #bdb2ff;
+  color: #bdb2ff;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 23ch }
+}
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: currentColor; }
+}
+
+.quote {
+  font-style: italic;
+  font-size: 1.4rem;
+  margin-top: 20px;
+  font-weight: 600;
+  color: #5e60ce;
+  text-align: center;
+}
+body.dark-mode .quote {
+  color: #bdb2ff;
+}
+
+/* Bölümler */
+section {
+  padding: 80px 0;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Başlıklar ortalı */
+h2.section-title {
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 60px;
+  color: #5e60ce;
+  position: relative;
+  font-size: 2rem;
+  transition: color 0.4s;
+}
+body.dark-mode h2.section-title {
+  color: #bdb2ff;
+}
+h2.section-title::after {
+  content: '';
+  display: block;
+  width: 100px;
+  height: 5px;
+  background: currentColor;
+  margin: 15px auto 0;
+  border-radius: 3px;
+}
+
+/* Hakkımda paragraf ortalı */
+#about p {
+  max-width: 720px;
+  margin: 0 auto;
+  font-size: 1.15rem;
+  line-height: 1.6;
+  text-align: center;
+}
+
+/* CV indir butonu ortalı ve şık */
+#cvDownloadBtn {
+  display: block;
+  width: auto;
+  padding: 10px 28px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 25px;
+  background: #2980b9;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin: 30px auto 0;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 6px 15px rgba(41, 128, 185, 0.4);
+  text-align: center;
+  user-select: none;
+  white-space: nowrap;
+  max-width: 240px;
+}
+#cvDownloadBtn:hover {
+  background: #1f618d;
+  box-shadow: 0 8px 20px rgba(31, 97, 141, 0.6);
+}
+
+/* Kartlar */
+.card {
+  box-shadow: 0 8px 24px rgb(94 96 206 / 0.2);
+  border: none;
+  border-radius: 16px;
+  padding: 30px 35px;
+  background: #ffffff;
+  color: #1e1e1e;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.4s, color 0.4s;
+  height: 100%;
+}
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 35px rgb(94 96 206 / 0.5);
+  background: #5e60ce;
+  color: white;
+}
+body.dark-mode .card {
+  background: #2c2e4a;
+  color: #fdfdfd;
+  box-shadow: 0 8px 24px rgb(189 178 255 / 0.2);
+}
+body.dark-mode .card:hover {
+  background: #bdb2ff;
+  color: #1e1e1e;
+  box-shadow: 0 15px 35px rgb(189 178 255 / 0.7);
+  .project-card {
+  position: relative; /* Mutlaka relative olmalı */
+  overflow: hidden;
+  padding-bottom: 60px; /* Buton için biraz boşluk bırak */
+}
+}
+.project-card {
+  position: relative;
+  padding-bottom: 60px; /* Buton alanı için boşluk */
+}
+
+.details-btn {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+  background-color: #5e60ce;
+  border: none;
+  color: white;
+  padding: 8px 20px;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(94, 96, 206, 0.5);
+}
+
+.project-card:hover .details-btn {
+  opacity: 1;
+  visibility: visible;
+}
+
+.details-btn:hover {
+  background-color: #483db8;
+  box-shadow: 0 6px 20px rgba(72, 61, 184, 0.7);
+}
+
+
+/* İletişim listesi */
+#contact {
+  text-align: center;
+}
+#contact ul {
+  list-style: none;
+  padding: 0;
+  max-width: 450px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+}
+#contact ul li {
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: #555555;
+  transition: color 0.4s;
+}
+#contact ul li i {
+  color: #5e60ce;
+  font-size: 1.3rem;
+  min-width: 25px;
+  text-align: center;
+  transition: color 0.4s;
+}
+body.dark-mode #contact ul li i {
+  color: #bdb2ff;
+}
+#contact ul li a {
+  color: #5e60ce;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+#contact ul li a:hover {
+  color: #bdb2ff;
+}
+
+/* Footer */
+footer {
+  background: rgba(255, 255, 255, 0.8);
+  color: #555555;
+  text-align: center;
+  padding: 20px 0;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  margin-top: 40px;
+  transition: background-color 0.4s, color 0.4s;
+}
+body.dark-mode footer {
+  background: rgba(20, 20, 40, 0.8);
+  color: #fdfdfd;
+}
+
+/* Fade in animasyon */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive */
+
+  @media (max-width: 768px) {
+  .typewriter {
+    font-size: 1.4rem;
+    border-right: 2px solid #fff;
+    padding: 0 5px;
+
+  .card {
+    padding: 20px;
+  }
+
+}
+   
+  }
