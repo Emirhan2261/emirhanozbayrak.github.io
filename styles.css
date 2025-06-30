@@ -131,7 +131,7 @@ body.dark-mode .hero .content {
   margin: 0 auto;
   overflow: hidden;
   width: 31ch; /* Cümlenin karakter sayısına göre */
-  animation: typing 3.5s steps(29, end), blink-caret .75s step-end infinite;
+  animation: typing 2s steps(31, end), blink-caret .75s infinite;
   color: #5e60ce;
   text-align: center;
 }
